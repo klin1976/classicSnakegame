@@ -1,0 +1,60 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Classic Snake</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Classic Snake</h1>
+
+    <section id="start-screen" class="start-screen">
+      <p>Press Start to play.</p>
+      <button id="start-btn" type="button">Start</button>
+    </section>
+
+    <section class="hud">
+      <p>Score: <span id="score">0</span></p>
+      <p>High: <span id="high-score">0</span></p>
+      <p id="status" class="status">Ready</p>
+    </section>
+
+    <section id="board" class="board" aria-label="Snake game board" role="grid"></section>
+
+    <section class="actions">
+      <button id="pause-btn" type="button">Pause</button>
+      <button id="restart-btn" type="button">Restart</button>
+      <button id="demo-btn" type="button">Demo: OFF</button>
+    </section>
+
+    <section class="modes" aria-label="Game modes">
+      <label>
+        <input id="wrap-mode" type="checkbox" />
+        Wrap Walls
+      </label>
+      <label>
+        <input id="special-food-mode" type="checkbox" />
+        Special Food
+      </label>
+      <label>
+        <input id="obstacle-mode" type="checkbox" />
+        Obstacles
+      </label>
+    </section>
+
+    <section class="controls" aria-label="Directional controls">
+      <button type="button" data-direction="UP">Up</button>
+      <div class="middle-row">
+        <button type="button" data-direction="LEFT">Left</button>
+        <button type="button" data-direction="DOWN">Down</button>
+        <button type="button" data-direction="RIGHT">Right</button>
+      </div>
+    </section>
+
+    <p class="hint">Use Arrow keys or WASD. Restart resets direction and speed.</p>
+  </main>
+  <script type="module" src="./src/game.js"></script>
+</body>
+</html>

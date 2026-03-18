@@ -1,0 +1,23 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#f4f4f4"/>
+  <rect x="140" y="80" width="920" height="640" fill="#ffffff" stroke="#cfcfcf"/>
+  <text x="180" y="140" font-family="Arial" font-size="42" fill="#222">Classic Snake</text>
+
+  <rect x="180" y="180" width="520" height="470" fill="#c8c8c8" stroke="#9d9d9d"/>
+  <g fill="#2f7d32">
+    <rect x="320" y="294" width="24" height="24"/><rect x="294" y="294" width="24" height="24"/>
+    <rect x="268" y="294" width="24" height="24"/><rect x="268" y="268" width="24" height="24"/>
+  </g>
+  <g fill="#444444">
+    <rect x="346" y="294" width="24" height="24"/><rect x="372" y="294" width="24" height="24"/>
+    <rect x="398" y="294" width="24" height="24"/>
+  </g>
+  <rect x="502" y="450" width="24" height="24" fill="#d62f2f"/>
+
+  <rect x="240" y="340" width="400" height="120" fill="#ffffff" stroke="#d9d9d9"/>
+  <text x="340" y="410" font-family="Arial" font-size="48" fill="#b61a1a">GAME OVER</text>
+
+  <text x="740" y="250" font-family="Arial" font-size="30" fill="#222">Score: 6</text>
+  <text x="740" y="295" font-family="Arial" font-size="30" fill="#222">High: 12</text>
+  <text x="740" y="340" font-family="Arial" font-size="30" fill="#b61a1a">Status: Game Over</text>
+</svg>

@@ -1,0 +1,171 @@
+﻿* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  color: #222;
+}
+
+.container {
+  max-width: 560px;
+  margin: 24px auto;
+  padding: 16px;
+}
+
+h1 {
+  margin: 0 0 12px;
+}
+
+.start-screen {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding: 10px;
+  border: 1px solid #cdcdcd;
+  background: #fff;
+}
+
+.start-screen.hidden {
+  display: none;
+}
+
+.start-screen p {
+  margin: 0;
+}
+
+.hud {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.hud p {
+  margin: 0;
+}
+
+#score,
+#high-score {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.status {
+  min-width: 90px;
+  text-align: right;
+}
+
+.status.game-over {
+  color: #b61a1a;
+  animation: pulse 600ms ease-in-out 2;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+.board {
+  width: min(92vw, 480px);
+  height: min(92vw, 480px);
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  grid-template-rows: repeat(20, 1fr);
+  gap: 1px;
+  background: #c8c8c8;
+  border: 1px solid #9d9d9d;
+  touch-action: none;
+}
+
+.cell {
+  background: #fff;
+}
+
+.cell.snake {
+  background: #2f7d32;
+}
+
+.cell.food {
+  background: #d62f2f;
+}
+
+.cell.food-special {
+  background: #2563eb;
+}
+
+.cell.obstacle {
+  background: #444;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.modes {
+  display: flex;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.modes label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+}
+
+button {
+  border: 1px solid #8c8c8c;
+  background: #fff;
+  color: #222;
+  padding: 10px 14px;
+  cursor: pointer;
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.controls {
+  margin-top: 12px;
+  width: fit-content;
+  touch-action: none;
+}
+
+.middle-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.hint {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #555;
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 12px;
+  }
+
+  .hud {
+    flex-wrap: wrap;
+  }
+
+  .modes {
+    flex-wrap: wrap;
+  }
+
+  button {
+    font-size: 15px;
+    padding: 12px 16px;
+  }
+}

@@ -1,0 +1,28 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#f4f4f4"/>
+  <rect x="140" y="80" width="920" height="640" fill="#ffffff" stroke="#cfcfcf"/>
+  <text x="180" y="140" font-family="Arial" font-size="42" fill="#222">Classic Snake</text>
+
+  <rect x="180" y="180" width="520" height="470" fill="#c8c8c8" stroke="#9d9d9d"/>
+  <g fill="#ffffff">
+    <rect x="190" y="190" width="24" height="24"/><rect x="216" y="190" width="24" height="24"/>
+    <rect x="242" y="190" width="24" height="24"/><rect x="268" y="190" width="24" height="24"/>
+  </g>
+  <g fill="#2f7d32">
+    <rect x="424" y="372" width="24" height="24"/><rect x="398" y="372" width="24" height="24"/>
+    <rect x="372" y="372" width="24" height="24"/><rect x="346" y="372" width="24" height="24"/>
+    <rect x="346" y="346" width="24" height="24"/>
+  </g>
+  <rect x="502" y="372" width="24" height="24" fill="#d62f2f"/>
+  <rect x="320" y="424" width="24" height="24" fill="#2563eb"/>
+  <g fill="#444444">
+    <rect x="294" y="320" width="24" height="24"/><rect x="294" y="346" width="24" height="24"/>
+    <rect x="294" y="372" width="24" height="24"/><rect x="294" y="398" width="24" height="24"/>
+  </g>
+
+  <text x="740" y="250" font-family="Arial" font-size="30" fill="#222">Score: 10</text>
+  <text x="740" y="295" font-family="Arial" font-size="30" fill="#222">High: 12</text>
+  <text x="740" y="340" font-family="Arial" font-size="30" fill="#0f7a2f">Status: Running</text>
+  <text x="740" y="400" font-family="Arial" font-size="24" fill="#222">Modes: Wrap OFF / Special ON / Obstacles ON</text>
+  <text x="740" y="440" font-family="Arial" font-size="24" fill="#222">Demo: ON</text>
+</svg>
