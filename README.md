@@ -1,72 +1,72 @@
-# Classic Snake Game
+﻿# 經典貪吃蛇（Classic Snake）
 
-A minimal, modular Snake game built with plain HTML/CSS/JavaScript.
+使用純 HTML / CSS / JavaScript 實作的模組化貪吃蛇遊戲。
 
-## Gameplay
+## 遊戲玩法
 
-- Move the snake on a 20x20 grid.
-- Eat red food to grow and gain score.
-- Avoid walls, your own body, and obstacles (when obstacle mode is enabled).
-- Use restart to reset score, speed, and direction.
+- 在 20x20 格子地圖中移動蛇。
+- 吃到紅色食物可成長並加分。
+- 避開牆壁、自己身體，以及障礙物（啟用障礙模式時）。
+- 按下 Restart 可完整重置分數、速度與方向。
 
-## Controls
+## 操作方式
 
-- Keyboard: `Arrow keys` or `W/A/S/D`
-- On-screen: `Up / Left / Down / Right` buttons
-- `Start`: begin game
-- `Pause/Resume`: pause and continue
-- `Restart`: reset game immediately
-- `Demo: ON/OFF`: AI auto-play (BFS)
+- 鍵盤：`方向鍵` 或 `W/A/S/D`
+- 螢幕按鈕：`Up / Left / Down / Right`
+- `Start`：開始遊戲
+- `Pause/Resume`：暫停 / 繼續
+- `Restart`：立即重開
+- `Demo: ON/OFF`：AI 自動遊玩（BFS）
 
-## Features
+## 功能清單
 
-- Difficulty scaling by score
-- High score persistence via `localStorage`
-- Special food mode (slowdown effect)
-- Wrap walls mode
-- Obstacle mode
-- Demo mode (BFS pathfinding)
-- Core logic tests that run without DOM
+- 依分數提升難度（速度變化）
+- `localStorage` 最高分保存
+- 特殊食物模式（減速效果）
+- 穿牆模式（Wrap Walls）
+- 障礙物模式（Obstacles）
+- Demo 模式（BFS 路徑尋找）
+- 可脫離 DOM 的核心邏輯測試
 
-## Development
+## 開發方式
 
-### Run locally
+### 本機啟動
 
 ```bash
 cd F:\Codex\classicSnakegame
 python -m http.server 8000
 ```
 
-Open: `http://localhost:8000`
+開啟：`http://localhost:8000`
 
-### Run tests
+### 執行測試
 
 ```bash
 node --test src/snakeCore.test.js
 ```
 
-## GitHub Pages
+## GitHub Pages 發佈
 
-This repo includes a Pages workflow that deploys static files from the root.
+此專案已包含 Pages 自動部署流程（GitHub Actions），會從專案根目錄發佈靜態檔案。
 
-### One-time setup
+### 一次性設定
 
-1. Push this repository to GitHub.
-2. In repository settings, open **Pages**.
-3. Ensure source is **GitHub Actions**.
+1. 將此專案推送到 GitHub。
+2. 到 Repository Settings -> **Pages**。
+3. Source 設定為 **GitHub Actions**。
 
-After that, every push to `main` deploys automatically.
+完成後，每次 push 到 `main` 都會自動部署。
 
-## Screenshots
+## 截圖
 
-Start screen:
+開始畫面：
 
-![Start](./assets/screenshots/start.svg)
+![開始畫面](./assets/screenshots/start.svg)
 
-In-game:
+遊戲進行中：
 
-![Running](./assets/screenshots/running.svg)
+![遊戲進行中](./assets/screenshots/running.svg)
 
-Game over:
+遊戲結束：
 
-![Game Over](./assets/screenshots/gameover.svg)
+![遊戲結束](./assets/screenshots/gameover.svg)
