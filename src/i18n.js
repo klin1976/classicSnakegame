@@ -204,7 +204,17 @@ function normalizeLanguage(lang) {
   return "en";
 }
 
-export function getInitialLanguage() {
+export function pickSupportedLanguage(lang) {
+  const normalized = normalizeLanguage(lang);
+  return TRANSLATIONS[normalized] ? normalized : "en";
+}
+
+export function getInitialLanguage(preferredLanguage = "") {
+  const preferred = pickSupportedLanguage(preferredLanguage);
+  if (preferredLanguage && TRANSLATIONS[preferred]) {
+    return preferred;
+  }
+
   try {
     const stored = window.localStorage.getItem(LANGUAGE_KEY);
     if (stored && TRANSLATIONS[stored]) {
@@ -227,4 +237,8 @@ export function setLanguagePreference(language) {
 export function getText(language, key) {
   const dict = TRANSLATIONS[language] || TRANSLATIONS.en;
   return dict[key] || TRANSLATIONS.en[key] || key;
+}
+
+export function getSupportedLanguages() {
+  return Object.keys(TRANSLATIONS);
 }

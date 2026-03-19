@@ -19,7 +19,7 @@ import { createLoop } from "./loop.js";
 import { createRenderer } from "./render.js";
 import { bindInputHandlers } from "./input.js";
 import { getAIDirection } from "./ai.js";
-import { getInitialLanguage, setLanguagePreference } from "./i18n.js";
+import { getInitialLanguage, pickSupportedLanguage, setLanguagePreference } from "./i18n.js";
 
 const elements = {
   boardEl: document.getElementById("board"),
@@ -53,6 +53,7 @@ const elements = {
 const searchParams = new URLSearchParams(window.location.search);
 const scenePreset = searchParams.get("scene");
 const staticPreview = searchParams.get("static") === "1";
+const queryLanguage = searchParams.get("lang") || "";
 
 let state = createInitialState({
   gridWidth: GRID_SIZE,
@@ -61,7 +62,10 @@ let state = createInitialState({
 });
 let appState = APP_STATE.START;
 let highScore = getHighScore();
-let language = getInitialLanguage();
+let language = getInitialLanguage(queryLanguage);
+if (queryLanguage) {
+  setLanguagePreference(language);
+}
 const modeFlags = {
   wrapWalls: false,
   specialFood: false,
@@ -328,8 +332,11 @@ function handleObstacleToggle(checked) {
 }
 
 function handleLanguageChange(nextLanguage) {
-  language = nextLanguage;
+  language = pickSupportedLanguage(nextLanguage);
   setLanguagePreference(language);
+  const url = new URL(window.location.href);
+  url.searchParams.set("lang", language);
+  window.history.replaceState({}, "", url);
   render();
 }
 
