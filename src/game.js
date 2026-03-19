@@ -19,12 +19,27 @@ import { createLoop } from "./loop.js";
 import { createRenderer } from "./render.js";
 import { bindInputHandlers } from "./input.js";
 import { getAIDirection } from "./ai.js";
+import { getInitialLanguage, setLanguagePreference } from "./i18n.js";
 
 const elements = {
   boardEl: document.getElementById("board"),
   scoreEl: document.getElementById("score"),
   highScoreEl: document.getElementById("high-score"),
   statusEl: document.getElementById("status"),
+  titleEl: document.getElementById("title-text"),
+  startMessageEl: document.getElementById("start-message"),
+  scoreLabelEl: document.getElementById("score-label"),
+  highLabelEl: document.getElementById("high-label"),
+  wrapLabelEl: document.getElementById("wrap-label"),
+  specialLabelEl: document.getElementById("special-label"),
+  obstacleLabelEl: document.getElementById("obstacle-label"),
+  upBtn: document.getElementById("btn-up"),
+  leftBtn: document.getElementById("btn-left"),
+  downBtn: document.getElementById("btn-down"),
+  rightBtn: document.getElementById("btn-right"),
+  hintEl: document.getElementById("hint-text"),
+  languageLabelEl: document.getElementById("language-label"),
+  languageSelectEl: document.getElementById("language-select"),
   pauseBtn: document.getElementById("pause-btn"),
   restartBtn: document.getElementById("restart-btn"),
   startBtn: document.getElementById("start-btn"),
@@ -46,6 +61,7 @@ let state = createInitialState({
 });
 let appState = APP_STATE.START;
 let highScore = getHighScore();
+let language = getInitialLanguage();
 const modeFlags = {
   wrapWalls: false,
   specialFood: false,
@@ -196,11 +212,13 @@ function syncLoop() {
 }
 
 function render() {
+  document.documentElement.lang = language;
   renderer.render({
     state,
     appState,
     highScore,
     modeFlags,
+    language,
   });
 }
 
@@ -309,6 +327,12 @@ function handleObstacleToggle(checked) {
   render();
 }
 
+function handleLanguageChange(nextLanguage) {
+  language = nextLanguage;
+  setLanguagePreference(language);
+  render();
+}
+
 bindInputHandlers({
   ...elements,
   onDirection: handleDirection,
@@ -319,6 +343,10 @@ bindInputHandlers({
   onToggleWrap: handleWrapToggle,
   onToggleSpecial: handleSpecialToggle,
   onToggleObstacle: handleObstacleToggle,
+});
+
+elements.languageSelectEl.addEventListener("change", (event) => {
+  handleLanguageChange(event.target.value);
 });
 
 applyScenePreset();

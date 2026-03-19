@@ -15,6 +15,29 @@ body {
   padding: 16px;
 }
 
+.topbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+}
+
+.lang-picker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lang-picker label {
+  font-size: 14px;
+}
+
+.lang-picker select {
+  padding: 6px 8px;
+  border: 1px solid #8c8c8c;
+  background: #fff;
+  color: #222;
+}
+
 h1 {
   margin: 0 0 12px;
 }

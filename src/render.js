@@ -1,22 +1,23 @@
-import { APP_STATE } from "./stateMachine.js";
+﻿import { APP_STATE } from "./stateMachine.js";
+import { getText } from "./i18n.js";
 
-function setStatus(statusEl, appState) {
+function setStatus(statusEl, appState, language) {
   const isGameOver = appState === APP_STATE.GAMEOVER;
   statusEl.classList.toggle("game-over", isGameOver);
 
   if (appState === APP_STATE.START) {
-    statusEl.textContent = "Ready";
+    statusEl.textContent = getText(language, "ready");
     return;
   }
   if (appState === APP_STATE.PAUSED) {
-    statusEl.textContent = "Paused";
+    statusEl.textContent = getText(language, "paused");
     return;
   }
   if (appState === APP_STATE.GAMEOVER) {
-    statusEl.textContent = "Game Over";
+    statusEl.textContent = getText(language, "gameOver");
     return;
   }
-  statusEl.textContent = "Running";
+  statusEl.textContent = getText(language, "running");
 }
 
 export function createRenderer(elements) {
@@ -26,25 +27,60 @@ export function createRenderer(elements) {
     highScoreEl,
     statusEl,
     pauseBtn,
+    restartBtn,
+    startBtn,
     startScreenEl,
     demoBtn,
     wrapToggleEl,
     specialToggleEl,
     obstacleToggleEl,
+    titleEl,
+    startMessageEl,
+    scoreLabelEl,
+    highLabelEl,
+    wrapLabelEl,
+    specialLabelEl,
+    obstacleLabelEl,
+    upBtn,
+    leftBtn,
+    downBtn,
+    rightBtn,
+    hintEl,
+    languageLabelEl,
+    languageSelectEl,
   } = elements;
 
   function render(viewModel) {
-    const { state, appState, highScore, modeFlags } = viewModel;
+    const { state, appState, highScore, modeFlags, language } = viewModel;
 
     scoreEl.textContent = String(state.score);
     highScoreEl.textContent = String(highScore);
-    setStatus(statusEl, appState);
 
-    pauseBtn.textContent = appState === APP_STATE.PAUSED ? "Resume" : "Pause";
+    titleEl.textContent = getText(language, "title");
+    startMessageEl.textContent = getText(language, "startMessage");
+    scoreLabelEl.textContent = getText(language, "score");
+    highLabelEl.textContent = getText(language, "high");
+    wrapLabelEl.textContent = getText(language, "wrapWalls");
+    specialLabelEl.textContent = getText(language, "specialFood");
+    obstacleLabelEl.textContent = getText(language, "obstacles");
+    upBtn.textContent = getText(language, "up");
+    leftBtn.textContent = getText(language, "left");
+    downBtn.textContent = getText(language, "down");
+    rightBtn.textContent = getText(language, "right");
+    hintEl.textContent = getText(language, "hint");
+    languageLabelEl.textContent = getText(language, "language");
+    languageSelectEl.value = language;
+    startBtn.textContent = getText(language, "start");
+    restartBtn.textContent = getText(language, "restart");
+
+    setStatus(statusEl, appState, language);
+
+    pauseBtn.textContent =
+      appState === APP_STATE.PAUSED ? getText(language, "resume") : getText(language, "pause");
     pauseBtn.disabled = appState === APP_STATE.START || appState === APP_STATE.GAMEOVER;
     startScreenEl.classList.toggle("hidden", appState !== APP_STATE.START);
 
-    demoBtn.textContent = modeFlags.demoMode ? "Demo: ON" : "Demo: OFF";
+    demoBtn.textContent = modeFlags.demoMode ? getText(language, "demoOn") : getText(language, "demoOff");
     wrapToggleEl.checked = modeFlags.wrapWalls;
     specialToggleEl.checked = modeFlags.specialFood;
     obstacleToggleEl.checked = modeFlags.obstacleMode;
