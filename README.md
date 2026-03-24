@@ -36,7 +36,11 @@
 - 穿牆模式（Wrap Walls）
 - 障礙物模式（Obstacles）
 - Demo 模式（BFS 路徑尋找）
-- 可脫離 DOM 的核心邏輯測試
+- HUD + overlay（開始／暫停／排行榜／Game Over）
+- canvas 畫布與漸層網格、動畫食物
+- 本機排行榜與暫存玩家名稱輸入
+- 主題（dark/neon/retro）與聲音管理
+- 分離的 `stateManager` / `gameEngine` 邏輯層
 
 ## 開發方式
 
@@ -52,7 +56,7 @@ python -m http.server 8000
 ### 執行測試
 
 ```bash
-node --test src/snakeCore.test.js
+npm test
 ```
 
 ## GitHub Pages 發佈
